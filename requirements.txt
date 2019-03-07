@@ -8,6 +8,7 @@ Jinja2==2.10
 MarkupSafe==1.1.1
 peewee==3.9.2
 peewee-db-evolve==3.7.0
+psycopg2-binary==2.7.7
 PyJWT==1.7.1
 python-dotenv==0.10.1
 six==1.12.0

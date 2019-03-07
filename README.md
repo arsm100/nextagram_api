@@ -1,4 +1,4 @@
-# Flask Nextagram Template
+# Flask Nextagram_API example based on Flask Nextagram Template
 
 version 0.0.1 (alpha)
 
@@ -37,48 +37,24 @@ This project uses `python-dotenv`. When running commands using `flask`, environm
 
 When executing `python` scripts directly e.g. `python start.py`, environment variables are not loaded and will not work except `python migrate.py` _(read the script - `migrate.py` to know why it would load the environment variables `.env`)_
 
-Minimum environment variables that needs to be set
+For minimum environment variables that needs to be set, check the `example(.env)` file.
 
-```
-FLASK_APP='start' # based on the name of our entry point script
-FLASK_ENV='development' # use this in development, otherwise 'production' or 'test'
-DATABASE_URL="postgres://localhost:5432/nextagram_dev"
-SECRET_KEY= #generate your own key
-```
 
 Use `os.urandom(32)` to generate a random secret key and paste that in `.env`. It's important to keep this `SECRET_KEY` private.
-
-Since this app uses Pooled Connections, you may also want to set:
-
-```
-DB_TIMEOUT=300 # 5 minutes
-DB_POOL=5
-```
-
-_(see `database.py`)_
 
 **Create a Database**
 
 - this application is configured to use Postgresql
 
 ```
-createdb nextagram_dev
+createdb nextagram_api
 ```
 
 _\*if you name your database something else, tweak the settings in `.env`_
 
 **Ignoring Files from Git**
 
-Before git commiting, remember to ignore key files. Here's an example of `.gitignore`
-
-```
-.vscode
-*.DS_Store
-*__pycache__
-*.env
-```
-
----
+An sample `.gitignore` file is provided.
 
 ## Database Migrations
 
@@ -112,11 +88,18 @@ flask shell
 
 ## Architecture
 
-This template separates out API and Web to separate packages. Both API and Web are configured to use Flask's Blueprints.
+This template uses only an API package which is configured to use Flask's Blueprints.
 
 All new models should go into it's own file/script within the models directory.
 
 The entry point for a Flask server to start is located at `start.py`
+
+---
+
+## Documentation
+
+This template is based on the nextegram api which uses the endpoints and api services defined here:
+https://documenter.getpostman.com/view/2792518/RzZ6HLBy
 
 ---
 
@@ -126,12 +109,9 @@ This template was created against `Python 3.7`. Should work with newer versions 
 
 `Peewee` is used as ORM along with a database migration library `peewee-db-evolve`.
 
-This template also comes packaged with Bootstrap 4.1.3 and it's dependencies (jQuery).
-
-A copy of requirements.txt is included in the repository.
+A copy of `requirements.txt` is included in the repository.
 
 ```
-autopep8==1.4.3
 certifi==2018.11.29
 Click==7.0
 colorama==0.4.1
@@ -139,11 +119,11 @@ Flask==1.0.2
 Flask-Cors==3.0.7
 itsdangerous==1.1.0
 Jinja2==2.10
-MarkupSafe==1.1.0
-peewee==3.8.2
+MarkupSafe==1.1.1
+peewee==3.9.2
 peewee-db-evolve==3.7.0
 psycopg2-binary==2.7.7
-pycodestyle==2.5.0
+PyJWT==1.7.1
 python-dotenv==0.10.1
 six==1.12.0
 Werkzeug==0.14.1

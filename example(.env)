@@ -1,0 +1,7 @@
+FLASK_ENV=development
+FLASK_APP=start
+DATABASE_URL="postgres://localhost:5432/nextagram_api" # you must create this db
+SECRET_KEY=b' ,\xd7\xe6^\x97\x10\x8bzG\xa1nq)\xef\xc6Nv34i\x9dv\x13\xfa\xfdf\xb4\x0cl\xbc\xea'
+S3_BUCKET_NAME = <your_bucket_name>
+DB_TIMEOUT=300 # 5 minutes
+DB_POOL=5
