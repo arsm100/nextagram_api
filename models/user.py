@@ -66,7 +66,7 @@ class User(BaseModel):
 
     def feed(self):
         idols_ids = list(idol.id for idol in self.idols)
-        feed = Image.select().join(User, on=(Image.user_id == User.id)).where(Image.user_id << idols_ids).order_by(Image.created_at.desc())
+        feed = Image.select(Image, User).join(User, on=(Image.user_id == User.id)).where(Image.user_id << idols_ids).order_by(Image.created_at.desc())
         return feed
 
     @hybrid_property
