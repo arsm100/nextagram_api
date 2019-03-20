@@ -6,7 +6,7 @@ from playhouse.hybrid import hybrid_property
 
 
 class Image(BaseModel):
-    user_id = pw.IntegerField() #IntegerField was used instead of ForeignKeyField to prevent circular import errors
+    user_id = pw.IntegerField(index=True) #IntegerField was used instead of ForeignKeyField to prevent circular import errors
     image_path = pw.CharField()
 
     @hybrid_property

@@ -3,8 +3,8 @@ from models.base_model import BaseModel
 # from models.user import User
 
 class Following(BaseModel):
-    fan_id = pw.IntegerField(null=False) #IntegerField was used instead of ForeignKeyField to prevent circular import errors
-    idol_id = pw.IntegerField(null=False) #IntegerField was used instead of ForeignKeyField to prevent circular import errors
+    fan_id = pw.IntegerField(null=False, index=True) #IntegerField was used instead of ForeignKeyField to prevent circular import errors
+    idol_id = pw.IntegerField(null=False, index=True) #IntegerField was used instead of ForeignKeyField to prevent circular import errors
     is_approved = pw.BooleanField(default=False)
 
     class Meta:
